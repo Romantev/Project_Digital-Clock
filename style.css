@@ -5,6 +5,10 @@
   color: white;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 main {
   height: 100vh;
   width: 100vw;
@@ -15,33 +19,78 @@ main {
   position: relative;
 }
 
+.date {
+  width: 100%;
+  position: absolute;
+}
+
 .date h2 {
-  font-size: 16rem;
-  line-height: 11rem;
-  color: rgba(255, 255, 255, 0.316);
+  font-size: 14vw;
+  line-height: 12vw;
+  background-image: linear-gradient(
+    -225deg,
+    rgb(0, 136, 255),
+    rgb(50, 139, 142),
+    rgb(0, 255, 110),
+    rgb(255, 217, 0)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 4s linear infinite;
+  display: inline-block;
+}
+
+.today {
+  margin-left: 15vw;
 }
 
 .day {
-  margin-left: 35rem;
+  margin-left: 55vw;
 }
 
 .month {
-  margin-left: 40rem;
+  margin-left: 60vw;
 }
 
 .year {
-  margin-left: 50rem;
+  margin-left: 65vw;
 }
 
 .clock {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  border: 3px solid white;
+  gap: 2rem;
   padding: 30px;
-  margin-right: -35vw;
   z-index: 10;
+  position: absolute;
+  left: 10%;
+
+  --border-size: 3px;
+  --border-angle: 0turn;
+
+  background-image: conic-gradient(
+      from var(--border-angle),
+      rgb(0, 0, 0),
+      rgb(0, 0, 0) 50%,
+      rgb(0, 0, 0)
+    ),
+    conic-gradient(
+      from var(--border-angle),
+      transparent 20%,
+      #08f,
+      rgb(50, 139, 142),
+      rgb(0, 255, 110),
+      rgb(255, 217, 0)
+    );
+  background-size: calc(100% - (var(--border-size) * 2))
+      calc(100% - (var(--border-size) * 2)),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  animation: bg-spin 4s linear infinite;
 }
 
 div {
@@ -53,9 +102,31 @@ div {
 
 h2 {
   margin-bottom: 0.5rem;
-  font-size: 6rem;
+  font-size: 7vw;
+}
+
+p {
+  font-size: 1.4vw;
 }
 
 .dotted p {
   opacity: 0;
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
