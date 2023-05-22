@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(6, 6, 26);
+  position: relative;
+}
+
+.date h2 {
+  font-size: 16rem;
+  line-height: 11rem;
+  color: rgba(255, 255, 255, 0.316);
+}
+
+.day {
+  margin-left: 35rem;
+}
+
+.month {
+  margin-left: 40rem;
+}
+
+.year {
+  margin-left: 50rem;
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 3px solid white;
+  padding: 30px;
+  margin-right: -35vw;
+  z-index: 10;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  font-size: 6rem;
+}
+
+.dotted p {
+  opacity: 0;
+}
